@@ -3,18 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable/ic_menu_camera.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/drawable/side_nav_bar.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/app_bar_main.xml" value="0.2" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/content_main.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/fragment_gallery.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/fragment_past_match.xml" value="0.27447916666666666" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/fragment_slideshow.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/nav_header_main.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/rules_fragment.xml" value="0.27447916666666666" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/layout/settings_fragment.xml" value="0.27447916666666666" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/menu/activity_main_drawer.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/menu/main.xml" value="0.27025641025641023" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.290625" />
+        <entry key="..\:/Cours/Programation mobile/roundnet-tracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.28615384615384615" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/nav_header_main.xml" value="0.140625" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/rules_fragment.xml" value="0.2359375" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/settings_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/menu/activity_main_drawer.xml" value="0.6" />
+        <entry key="..\:/Users/Mrjer/Desktop/roundnet-tracker/app/src/main/res/layout/activity_main.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/Mrjer/Desktop/roundnet-tracker/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/Mrjer/Desktop/roundnet-tracker/app/src/main/res/layout/nav_header_main.xml" value="0.12708333333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
