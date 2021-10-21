@@ -1,4 +1,4 @@
-package fr.hamchez.roundnettracker.ui.historic;
+package fr.hamchez.roundnettracker.ui.pastMatch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import fr.hamchez.roundnettracker.databinding.FragmentSlideshowBinding;
+import fr.hamchez.roundnettracker.databinding.FragmentPastMatchBinding;
 
-public class SlideshowFragment extends Fragment {
+public class PastMatchFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private PastMatchViewModel pastMatchViewModel;
+    private FragmentPastMatchBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        pastMatchViewModel =
+                new ViewModelProvider(this).get(PastMatchViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentPastMatchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        pastMatchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

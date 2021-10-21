@@ -18,8 +18,20 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="fr.hamchez.roundnettracker.ui.historic.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_past_match"
+        android:name="fr.hamchez.roundnettracker.ui.pastMatch.PastMatchFragment"
+        android:label="@string/menu_past_match"
+        tools:layout="@layout/fragment_past_match" />
+
+    <fragment
+        android:id="@+id/nav_rules"
+        android:name="fr.hamchez.roundnettracker.ui.rules.RulesFragment"
+        android:label="@string/menu_past_match"
+        tools:layout="@layout/fragment_past_match" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="fr.hamchez.roundnettracker.ui.settings.SettingsFragment"
+        android:label="@string/menu_past_match"
+        tools:layout="@layout/fragment_past_match" />
 </navigation>
