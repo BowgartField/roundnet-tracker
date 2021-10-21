@@ -1,4 +1,4 @@
-package fr.hamchez.roundnettracker.ui.slideshow;
+package fr.hamchez.roundnettracker.ui.historic;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import fr.hamchez.roundnettracker.R;
 import fr.hamchez.roundnettracker.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {

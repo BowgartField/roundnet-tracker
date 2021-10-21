@@ -1,4 +1,4 @@
-package fr.hamchez.roundnettracker.ui.slideshow;
+package fr.hamchez.roundnettracker.ui.historic;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
