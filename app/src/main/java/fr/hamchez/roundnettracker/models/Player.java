@@ -1,11 +1,15 @@
 package fr.hamchez.roundnettracker.models;
 
-public class User {
+import java.io.Serializable;
+
+public class Player implements Serializable {
 
     private int id;
-    private String firstname, lastname;
+    private String firstname;
+    private String lastname;
 
-    public User(int id, String firstname, String lastname) {
+
+    public Player(int id, String firstname, String lastname) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -21,5 +25,9 @@ public class User {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public String getName(){
+        return firstname + " " + lastname;
     }
 }

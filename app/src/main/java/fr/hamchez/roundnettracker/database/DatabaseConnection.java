@@ -23,7 +23,7 @@ public class DatabaseConnection {
 
             try{
 
-                connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/tp2","root","");
+                connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/roundnet","root","");
 
             }catch(Exception e){
                 e.printStackTrace();

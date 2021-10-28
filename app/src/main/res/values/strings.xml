@@ -18,5 +18,7 @@
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
 
+    <string name="loginError">Username or password incorrect</string>
+
 
 </resources>

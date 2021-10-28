@@ -3,6 +3,7 @@ package fr.hamchez.roundnettracker;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -14,16 +15,25 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import fr.hamchez.roundnettracker.database.RoundnetSQLite;
 import fr.hamchez.roundnettracker.databinding.ActivityMainBinding;
+import fr.hamchez.roundnettracker.models.Player;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
+    RoundnetSQLite roundnetSQLite;
+
+    Player player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        player = (Player) getIntent().getSerializableExtra("User");
+        roundnetSQLite = new RoundnetSQLite(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        View drawerHeader = navigationView.getHeaderView(0);
+
+        TextView userName = drawerHeader.findViewById(R.id.userName);
+        userName.setText(player.getName());
     }
 
     @Override
@@ -61,5 +76,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed () {
+
     }
 }

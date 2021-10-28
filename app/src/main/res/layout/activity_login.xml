@@ -26,6 +26,15 @@
             android:paddingLeft="30dp"
             android:paddingRight="30dp">
 
+            <TextView
+                android:id="@+id/errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loginError"
+                android:textColor="#FF0000"
+                android:textSize="16sp"
+                android:visibility="invisible" />
+
             <EditText
                 android:id="@+id/usernameEditText"
                 android:layout_width="match_parent"
@@ -48,7 +57,7 @@
                 android:id="@+id/signinButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/yellow"
+                android:backgroundTint="@color/button_color"
                 android:onClick="onSigninButtonClick"
                 android:text="@string/sign_in"
                 android:textColor="@color/black" />
