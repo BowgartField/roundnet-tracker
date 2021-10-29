@@ -63,27 +63,4 @@ public class RoundnetSQLite extends SQLiteOpenHelper {
         Arrays.asList(buffer.toString().replace("\n","").split(";")).forEach(db::execSQL);
 
     }
-
-    public void createTestPlayers(){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("id","JB");
-        contentValues.put("userName","jbrichez");
-        contentValues.put("firstname","Jean-Benoit");
-        contentValues.put("lastname","Richez");
-        contentValues.put("birthday","22/02/2000");
-        contentValues.put("idTeam","0");
-
-        contentValues.put("password","$2a$12$MYpcwHsJzW4.50Zfrl7BYOnR/NolO5jSXoblyuJwseEnwnqFYAu5G");
-        contentValues.put("email","jerichez@gmail.com");
-
-        db.insert(
-                "Player",
-                null,
-                contentValues
-        );
-
-    }
 }

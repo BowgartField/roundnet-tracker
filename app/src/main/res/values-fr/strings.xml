@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">RoundnetTracker</string>
     <string name="title_activity_main">MainActivity</string>
@@ -6,20 +7,19 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Réglages</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_past_match">Past Match</string>
+    <string name="menu_home">Menu</string>
+    <string name="menu_gallery">aa</string>
+    <string name="menu_past_match">vvvvv</string>
     <string name="menu_rules">Rules</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Réglages</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
 
     <string name="loginError">Username or password incorrect</string>
-    <string name="SettingsTextViewLanguage">Your language</string>
-
+    <string name="SettingsTextViewLanguage">langue</string>
 
 </resources>

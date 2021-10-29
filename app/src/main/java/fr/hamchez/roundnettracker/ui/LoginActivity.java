@@ -41,14 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
         addTextWatchers();
 
-
-        this.deleteDatabase("Roundnet");
-
-
         RoundnetSQLite roundnetSQLite = new RoundnetSQLite(this);
         roundnetSQLite.getWritableDatabase();
-
-        roundnetSQLite.createTestPlayers();
 
     }
 
