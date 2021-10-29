@@ -17,8 +17,8 @@ public class GameDAO implements DAO<Game>{
     }
 
     @Override
-    public Game insert(Game object) {
-        return null;
+    public boolean insert(Game object) {
+        return false;
     }
 
     @Override

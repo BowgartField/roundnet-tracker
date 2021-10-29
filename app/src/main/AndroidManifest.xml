@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,11 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoundnetTracker">
+
+
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD7kp5kQ11cn_4y1j21kHotm9JZjZHhYyM"/>
+
+
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.createGame.CreateGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.RoundnetTracker.NoActionBar" />
+        <activity
+            android:name=".ui.login.LoginActivity"
             android:theme="@style/Theme.RoundnetTracker.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,8 +39,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.RoundnetTracker.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.RoundnetTracker.NoActionBar"></activity>
     </application>
 
 </manifest>

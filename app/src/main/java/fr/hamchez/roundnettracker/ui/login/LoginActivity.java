@@ -1,4 +1,4 @@
-package fr.hamchez.roundnettracker.ui;
+package fr.hamchez.roundnettracker.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,13 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import fr.hamchez.roundnettracker.MainActivity;
 import fr.hamchez.roundnettracker.R;
 import fr.hamchez.roundnettracker.database.RoundnetSQLite;
+import fr.hamchez.roundnettracker.database.dao.ConnectedDAO;
 import fr.hamchez.roundnettracker.database.dao.PlayerDAO;
+import fr.hamchez.roundnettracker.models.Connected;
 import fr.hamchez.roundnettracker.models.Player;
+import fr.hamchez.roundnettracker.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,9 +45,33 @@ public class LoginActivity extends AppCompatActivity {
 
         addTextWatchers();
 
+        configureSQLiteDB();
+
+        // Verify if user is already connected
+        verifyIsConnected();
+
+    }
+
+    private void verifyIsConnected() {
+
+        List<Player> connectedPlayer = new ConnectedDAO(this).getAll();
+
+        System.out.println(connectedPlayer);
+
+        if(connectedPlayer.size() > 0){
+            goToMainActivity(connectedPlayer.get(0));
+        }
+
+    }
+
+    private void configureSQLiteDB() {
+
+        //this.deleteDatabase("Roundnet");
+
         RoundnetSQLite roundnetSQLite = new RoundnetSQLite(this);
         roundnetSQLite.getWritableDatabase();
 
+        //roundnetSQLite.createTestPlayers();
     }
 
     private void addTextWatchers(){
@@ -97,10 +125,8 @@ public class LoginActivity extends AppCompatActivity {
 
             if(connectedPlayer != null){
 
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("User", connectedPlayer);
-
-                startActivity(intent);
+                new ConnectedDAO(this).insert(connectedPlayer);
+                goToMainActivity(connectedPlayer);
 
             }else{
                 errorMessageTextView.setVisibility(View.VISIBLE);
@@ -114,6 +140,17 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onRegisterButtonClick(View view){
 
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void goToMainActivity(Player player){
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("User", player);
+
+        startActivity(intent);
 
     }
 }

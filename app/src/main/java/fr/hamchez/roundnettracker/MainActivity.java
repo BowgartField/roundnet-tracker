@@ -1,13 +1,18 @@
 package fr.hamchez.roundnettracker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,8 +23,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import fr.hamchez.roundnettracker.database.RoundnetSQLite;
 import fr.hamchez.roundnettracker.databinding.ActivityMainBinding;
 import fr.hamchez.roundnettracker.models.Player;
+import fr.hamchez.roundnettracker.ui.createGame.CreateGameActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -42,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(view.getContext(),CreateGameActivity.class);
+                startActivity(intent);
+
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -58,11 +66,22 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        setupDrawer(navigationView);
+
+    }
+
+    private void setupDrawer(NavigationView navigationView) {
+
         View drawerHeader = navigationView.getHeaderView(0);
 
         TextView userName = drawerHeader.findViewById(R.id.userName);
         userName.setText(player.getName());
+
+        // Button logoutButton = drawerHeader.findViewById(R.id.logoutButton);
+        // logoutButton.setOnClickListener(v -> System.out.println("ok"));
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

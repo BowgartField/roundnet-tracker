@@ -20,6 +20,7 @@
     </style>
 
     <style name="Theme.RoundnetTracker.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.RoundnetTracker.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

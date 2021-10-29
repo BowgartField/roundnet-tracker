@@ -17,6 +17,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import fr.hamchez.roundnettracker.R;
+import fr.hamchez.roundnettracker.database.dao.PlayerDAO;
+import fr.hamchez.roundnettracker.models.Player;
 
 public class RoundnetSQLite extends SQLiteOpenHelper {
 
@@ -30,8 +32,6 @@ public class RoundnetSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        System.out.println("OKKKKKKKKKKKKKKKKKKK");
         createTables(db);
     }
 
@@ -61,6 +61,22 @@ public class RoundnetSQLite extends SQLiteOpenHelper {
 
         // Arrays.asList(buffer.toString().split(";")).forEach(System.out::println);
         Arrays.asList(buffer.toString().replace("\n","").split(";")).forEach(db::execSQL);
+
+    }
+
+    public void createTestPlayers(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        new PlayerDAO(context).insert(new Player(
+                "Jean-Benoît",
+                "Richez",
+                "jbrichez",
+                "jerichez02@gmail.com",
+                "test",
+                null,
+                0
+        ));
 
     }
 }

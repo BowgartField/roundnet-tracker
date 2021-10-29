@@ -13,13 +13,33 @@
     <string name="menu_past_match">Past Match</string>
     <string name="menu_rules">Rules</string>
     <string name="menu_settings">Settings</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
+
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
+    <string name="logout">Log out</string>
 
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="email">Email</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="birthday">Birthday</string>
+
+    !-- Errors or informations -->
     <string name="loginError">Username or password incorrect</string>
     <string name="SettingsTextViewLanguage">Your language</string>
+    <string name="registerUserError">Error encountered</string>
+    <string name="registerUserOK">User created, you can now login !</string>
 
+
+    <string name="title_activity_register">RegisterActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello</string>
 
 </resources>
