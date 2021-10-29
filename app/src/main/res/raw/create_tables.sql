@@ -8,6 +8,10 @@ CREATE TABLE IF NOT EXISTS 'game' (
   CONSTRAINT 'game_ibfk_2' FOREIGN KEY ('idTeamTwo') REFERENCES 'team' ('id')
 );
 
+CREATE TABLE IF NOT EXISTS 'connected'(
+    'userName' text NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS 'player' (
   'id' int(11) NOT NULL,
   'userName' text NOT NULL,
