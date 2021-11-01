@@ -13,6 +13,12 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
+
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/icons8_groupe_d_utilisateurs_homme_femme_90"
+            android:title="@string/menu_teams" />
+
         <item
             android:id="@+id/nav_past_match"
             android:icon="@drawable/icons8_timer_96"

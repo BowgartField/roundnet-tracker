@@ -14,12 +14,30 @@
     <string name="menu_past_match">vvvvv</string>
     <string name="menu_rules">Rules</string>
     <string name="menu_settings">Réglages</string>
+    <string name="menu_teams">Equipes</string>
+
+
     <string name="username">Username</string>
     <string name="password">Password</string>
+
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
+    <string name="logout">Déconnecter</string>
+    <string name="add">Ajouter</string>
+
+    <string name="team1">Equipe 1</string>
+    <string name="team2">Equipe 2</string>
+    <string name="gameName">Nom du match</string>
+    <string name="createGame">Créer le match</string>
+    <string name="teamName">Nom de l\'équipe</string>
+    <string name="teamLocalisation">Localisatio de l\'équipe</string>
 
     <string name="loginError">Username or password incorrect</string>
     <string name="SettingsTextViewLanguage">langue</string>
+    <string name="registerUserError">L\'application a recontrée une erreur</string>
+    <string name="registerUserOK">Utilisateur créer, vous pouvez vous connecter !</string>
+    <string name="createTeamError">Impossible de créer une équipe vide</string>
+    <string name="createGameError">Veuillez renseigner un nom de match</string>
+
 
 </resources>

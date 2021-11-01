@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_team"
+        android:name="fr.hamchez.roundnettracker.ui.team.TeamFragment"
+        android:label="@string/menu_teams"
+        tools:layout="@layout/fragment_team" />
+
+    <fragment
         android:id="@+id/nav_past_match"
         android:name="fr.hamchez.roundnettracker.ui.pastMatch.PastMatchFragment"
         android:label="@string/menu_past_match"

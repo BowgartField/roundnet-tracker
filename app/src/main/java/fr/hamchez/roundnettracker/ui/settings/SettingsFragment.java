@@ -17,13 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
-import fr.hamchez.roundnettracker.MainActivity;
 import fr.hamchez.roundnettracker.R;
-import fr.hamchez.roundnettracker.ui.LoginActivity;
 
 public class SettingsFragment extends Fragment {
 

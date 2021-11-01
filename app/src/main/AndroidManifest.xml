@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoundnetTracker">
 
-
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD7kp5kQ11cn_4y1j21kHotm9JZjZHhYyM"/>
-
 
         <activity
             android:name=".ui.createGame.CreateGameActivity"

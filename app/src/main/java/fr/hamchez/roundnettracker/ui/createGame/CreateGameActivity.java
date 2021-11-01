@@ -2,34 +2,147 @@ package fr.hamchez.roundnettracker.ui.createGame;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.hamchez.roundnettracker.R;
+import fr.hamchez.roundnettracker.adapters.TeamSpinnerAdapter;
+import fr.hamchez.roundnettracker.database.dao.GameDAO;
+import fr.hamchez.roundnettracker.database.dao.TeamDAO;
+import fr.hamchez.roundnettracker.models.Game;
+import fr.hamchez.roundnettracker.models.Team;
 
-public class CreateGameActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class CreateGameActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
     SupportMapFragment mapFragment;
+    LocationManager locationManager;
+    GoogleMap googleMap;
+
+    Spinner teamOneSpinner;
+    Spinner teamTwoSpinner;
+
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_game);
 
+        teamOneSpinner = findViewById(R.id.teamOneSpinner);
+        teamTwoSpinner = findViewById(R.id.teamTwoSpinner);
+
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        populateMap();
+
+    }
+
+    private void populateMap() {
+
+        new Thread(() -> {
+
+            List<Team> teamList = new TeamDAO(this).getAll();
+
+            handler.post(new Thread(() -> {
+
+                TeamSpinnerAdapter teamOneAdapter = new TeamSpinnerAdapter(this,R.layout.team_spinner,teamList);
+                TeamSpinnerAdapter teamTwoAdapter = new TeamSpinnerAdapter(this,R.layout.team_spinner, teamList);
+
+                teamOneSpinner.setAdapter(teamOneAdapter);
+                teamTwoSpinner.setAdapter(teamTwoAdapter);
+
+            }));
+
+        }).start();
+
+    }
+
+    public void onCreateGame(View view){
+
+        Team teamOne = (Team) teamOneSpinner.getSelectedItem();
+        Team teamTwo = (Team) teamTwoSpinner.getSelectedItem();
+
+        String localisation = googleMap.getCameraPosition().target.longitude + "," + googleMap.getCameraPosition().target.latitude;
+
+        boolean result = new GameDAO(this).insert(
+                new Game(0,teamOne.getId(),teamTwo.getId(),localisation)
+        );
+
+        if(result){
+            Toast toast = Toast.makeText(this,"",Toast.LENGTH_LONG);
+            toast.show();
+
+
+
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1500, 10, this);
+        }else{
+            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.ACCESS_FINE_LOCATION },1);
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        locationManager.removeUpdates(this);
+
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
-                .title("Marker"));
+        this.googleMap = googleMap;
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+
+        LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
+
+        googleMap.addMarker(new MarkerOptions().position(latLng));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
     }
 }

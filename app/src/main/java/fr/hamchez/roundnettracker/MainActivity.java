@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_past_match, R.id.nav_rules, R.id.nav_settings)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_team, R.id.nav_past_match, R.id.nav_rules, R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -76,9 +76,6 @@ public class MainActivity extends AppCompatActivity{
 
         TextView userName = drawerHeader.findViewById(R.id.userName);
         userName.setText(player.getName());
-
-        // Button logoutButton = drawerHeader.findViewById(R.id.logoutButton);
-        // logoutButton.setOnClickListener(v -> System.out.println("ok"));
 
     }
 
