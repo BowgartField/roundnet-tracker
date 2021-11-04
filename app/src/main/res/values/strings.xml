@@ -19,6 +19,7 @@
     <string name="register">Register</string>
     <string name="logout">Log out</string>
     <string name="add">Add</string>
+    <string name="finishGame">Finish game</string>
 
     <string name="firstname">Firstname</string>
     <string name="lastname">Lastname</string>
@@ -28,12 +29,21 @@
     <string name="password">Password</string>
     <string name="birthday">Birthday</string>
 
+    <string name="addition" translatable="false">+</string>
+    <string name="sub" translatable="false">-</string>
+
     <string name="team1">Team 1</string>
     <string name="team2">Team 2</string>
     <string name="gameName">Game name</string>
     <string name="createGame">Create game</string>
     <string name="teamName">Team name</string>
     <string name="teamLocalisation">Team localisation</string>
+
+    <string name="handEmoji" translatable="false">👋🏻</string>
+    <string name="homeWelcomeText">Welcome </string>
+    <string name="live" translatable="false">live </string>
+    <string name="versus" translatable="false">vs </string>
+    <string name="noLive">No live game</string>
 
     !-- Errors or informations -->
     <string name="loginError">Username or password incorrect</string>
@@ -52,7 +62,7 @@
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

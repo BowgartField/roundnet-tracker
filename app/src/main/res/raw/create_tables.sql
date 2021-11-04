@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS 'game' (
   'idTeamOne' int(11) NOT NULL,
   'idTeamTwo' int(11) NOT NULL,
   'localisation' text NOT NULL,
+  'finished' text NOT NULL,
   PRIMARY KEY ('id'),
   CONSTRAINT 'game_ibfk_1' FOREIGN KEY ('idTeamOne') REFERENCES 'team' ('id'),
   CONSTRAINT 'game_ibfk_2' FOREIGN KEY ('idTeamTwo') REFERENCES 'team' ('id')

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity{
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // floating button to create new game
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

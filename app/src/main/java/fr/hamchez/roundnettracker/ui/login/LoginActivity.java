@@ -22,6 +22,7 @@ import fr.hamchez.roundnettracker.database.dao.PlayerDAO;
 import fr.hamchez.roundnettracker.models.Connected;
 import fr.hamchez.roundnettracker.models.Player;
 import fr.hamchez.roundnettracker.ui.register.RegisterActivity;
+import fr.hamchez.roundnettracker.utils.ObjectSharedPreferences;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -124,6 +125,8 @@ public class LoginActivity extends AppCompatActivity {
             Player connectedPlayer = getUser.call();
 
             if(connectedPlayer != null){
+
+                ObjectSharedPreferences.saveObjectToSharedPreference(this,"player",connectedPlayer);
 
                 new ConnectedDAO(this).insert(connectedPlayer);
                 goToMainActivity(connectedPlayer);

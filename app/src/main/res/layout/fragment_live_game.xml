@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:id="@+id/liveLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/live_game"
+        android:orientation="vertical"
+        android:paddingTop="7dp"
+        android:visibility="visible"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageView
+                android:id="@+id/liveSymbol"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:srcCompat="@drawable/live_symbol" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:gravity="center_vertical"
+                android:text="@string/live"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/fight___1" />
+
+                <TextView
+                    android:id="@+id/teamOneName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Team 1"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/teamOneLocalisation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:text="TextView"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="186dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/versus"
+                android:textColor="@color/yellow"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/fight___1" />
+
+                <TextView
+                    android:id="@+id/teamTwoName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Team 2"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/teamTwoLocalisation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center|top"
+                    android:text="TextView"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/noLiveLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/live_game"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noLive"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
+

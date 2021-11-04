@@ -16,21 +16,29 @@
     <string name="menu_settings">Réglages</string>
     <string name="menu_teams">Equipes</string>
 
-
-    <string name="username">Username</string>
-    <string name="password">Password</string>
+    <string name="firstname">Prénom</string>
+    <string name="lastname">Nom</string>
+    <string name="email">Email</string>
+    <string name="confirmPassword">Confirmation de mot de passe</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="birthday">Date d\'anniversaire</string>
 
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
     <string name="logout">Déconnecter</string>
     <string name="add">Ajouter</string>
+    <string name="finishGame">Terminer la partie</string>
 
     <string name="team1">Equipe 1</string>
     <string name="team2">Equipe 2</string>
     <string name="gameName">Nom du match</string>
     <string name="createGame">Créer le match</string>
     <string name="teamName">Nom de l\'équipe</string>
-    <string name="teamLocalisation">Localisatio de l\'équipe</string>
+    <string name="teamLocalisation">Localisation de l\'équipe</string>
+
+    <string name="homeWelcomeText">Bievenue </string>
+    <string name="noLive">Aucune partie en directe</string>
 
     <string name="loginError">Username or password incorrect</string>
     <string name="SettingsTextViewLanguage">langue</string>

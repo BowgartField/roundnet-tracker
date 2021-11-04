@@ -7,10 +7,13 @@
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/ic_menu_camera.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/item_selected.xml" value="0.1703125" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/live_game.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/live_symbol.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/drawable/side_nav_bar.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.20078125" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout-w936dp/activity_login.xml" value="0.1875" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_create_game.xml" value="0.4" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_game.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/activity_register.xml" value="0.4" />
@@ -18,11 +21,14 @@
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/content_register.xml" value="0.25" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/drawer_button.xml" value="0.25" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_live_game.xml" value="0.4" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_second.xml" value="0.25" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/fragment_team.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/rules_fragment.xml" value="0.2359375" />
+        <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/score_component.xml" value="0.264" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/settings_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/team_item_layout.xml" value="0.536" />
         <entry key="..\:/Users/Mrjer/AndroidStudioProjects/RoundnetTracker/app/src/main/res/layout/team_recyclerview_item.xml" value="0.4" />

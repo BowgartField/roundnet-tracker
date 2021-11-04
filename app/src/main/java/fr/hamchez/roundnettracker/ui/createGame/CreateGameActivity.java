@@ -106,7 +106,7 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
             Toast toast = Toast.makeText(this,"",Toast.LENGTH_LONG);
             toast.show();
 
-
+            // TODO: Envoyer l'utilisateur sur la page de la game
 
         }
 

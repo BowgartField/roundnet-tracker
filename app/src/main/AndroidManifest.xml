@@ -14,8 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoundnetTracker">
+        <activity
+            android:name=".ui.game.GameActivity"
+            android:exported="false" />
 
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyD7kp5kQ11cn_4y1j21kHotm9JZjZHhYyM"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD7kp5kQ11cn_4y1j21kHotm9JZjZHhYyM" />
 
         <activity
             android:name=".ui.createGame.CreateGameActivity"
@@ -37,7 +42,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.RoundnetTracker.NoActionBar"></activity>
+            android:theme="@style/Theme.RoundnetTracker.NoActionBar" />
     </application>
 
 </manifest>
