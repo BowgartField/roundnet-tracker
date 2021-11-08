@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="10"
     tools:context=".ui.game.GameActivity">
 
     <androidx.fragment.app.FragmentContainerView
@@ -18,7 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2" />
+        android:weightSum="2">
+
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/imageGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+    </androidx.gridlayout.widget.GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,10 +40,18 @@
         android:paddingRight="20dp">
 
         <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onTakePictureClick"
+            android:text="@string/takePicture" />
+
+        <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/finishGame" />
+
     </LinearLayout>
 
 </LinearLayout>

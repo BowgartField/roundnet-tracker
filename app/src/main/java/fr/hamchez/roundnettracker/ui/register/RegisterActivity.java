@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.concurrent.Callable;
+
 import fr.hamchez.roundnettracker.R;
 import fr.hamchez.roundnettracker.database.dao.PlayerDAO;
 import fr.hamchez.roundnettracker.models.Player;
@@ -174,7 +176,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
 
-
         confirmPasswordEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -215,14 +216,17 @@ public class RegisterActivity extends AppCompatActivity {
             PlayerDAO playerDAO = new PlayerDAO(this);
             boolean result = playerDAO.insert(player);
 
-            Toast toast;
-            if(result){
-                toast = Toast.makeText(this, R.string.registerUserOK, Toast.LENGTH_LONG);
-            }else{
-                toast = Toast.makeText(this,R.string.registerUserError,Toast.LENGTH_LONG);
-            }
+            this.runOnUiThread(() -> {
 
-            toast.show();
+                Toast toast;
+                if(result){
+                    toast = Toast.makeText(getApplicationContext(), R.string.registerUserOK, Toast.LENGTH_LONG);
+                }else{
+                    toast = Toast.makeText(getApplicationContext(),R.string.registerUserError,Toast.LENGTH_LONG);
+                }
+                toast.show();
+
+            });
 
             finish();
 

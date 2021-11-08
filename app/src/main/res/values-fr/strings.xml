@@ -29,6 +29,7 @@
     <string name="logout">Déconnecter</string>
     <string name="add">Ajouter</string>
     <string name="finishGame">Terminer la partie</string>
+    <string name="takePicture">Prendre une photo</string>
 
     <string name="team1">Equipe 1</string>
     <string name="team2">Equipe 2</string>
