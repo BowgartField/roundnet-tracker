@@ -91,10 +91,10 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
         );
 
         if(result){
-            Toast toast = Toast.makeText(this,"",Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this,R.string.createGameSucess,Toast.LENGTH_LONG);
             toast.show();
 
-            // TODO: Envoyer l'utilisateur sur la page de la game
+            finish();
 
         }
 
@@ -115,9 +115,7 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onPause() {
         super.onPause();
-
         locationManager.removeUpdates(this);
-
     }
 
     @Override

@@ -29,10 +29,7 @@ CREATE TABLE IF NOT EXISTS 'player' (
 CREATE TABLE IF NOT EXISTS 'points' (
   'id' int(11) NOT NULL,
   'idGame' int(11) NOT NULL,
-  'idJoueur' int(11) NOT NULL,
-  PRIMARY KEY ('id'),
-  CONSTRAINT 'points_ibfk_1' FOREIGN KEY ('idGame') REFERENCES 'game' ('id'),
-  CONSTRAINT 'points_ibfk_2' FOREIGN KEY ('idJoueur') REFERENCES 'joueur' ('id')
+  'idTeam' int(11) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS 'team' (

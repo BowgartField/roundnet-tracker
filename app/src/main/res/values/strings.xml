@@ -53,6 +53,7 @@
     <string name="registerUserOK">User created, you can now login !</string>
     <string name="createTeamError">Cannot create empty team</string>
     <string name="createGameError">Cannot create empty Game</string>
+    <string name="createGameSucess">Game created with success !</string>
 
     <string name="title_activity_register">RegisterActivity</string>
 

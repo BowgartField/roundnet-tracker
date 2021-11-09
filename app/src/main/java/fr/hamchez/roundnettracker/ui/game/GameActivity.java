@@ -17,6 +17,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.GridView;
@@ -26,7 +27,9 @@ import android.widget.LinearLayout;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import fr.hamchez.roundnettracker.BuildConfig;
@@ -45,6 +48,8 @@ public class GameActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> cameraActivityResultLauncher;
     String currentPhotoPath;
+
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,34 +71,72 @@ public class GameActivity extends AppCompatActivity {
             new ActivityResultContracts.StartActivityForResult(), result -> {
 
                 if (result.getResultCode() == Activity.RESULT_OK) {
-                    // There are no request codes
-                    Intent data = result.getData();
-
-                    //Get thumbnail
-                    Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-
-                    ImageView imageView = new ImageView(this);
-                    imageView.setImageBitmap(imageBitmap);
-
-                    imageGridView.addView(imageView);
 
                     //Get full size picture
                     File file = new File(currentPhotoPath);
-                    Bitmap bitmap = null;
-
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
-                        if (bitmap != null) {
-                            galleryAddPic();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    addImageView(file);
+                    galleryAddPic();
 
                 }
 
             });
 
+        new Thread(() -> {
+
+            File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES+"/"+liveGameId);
+            handler.post(() -> getListFiles(storageDir).forEach(this::addImageView));
+
+        }).start();
+
+    }
+
+    private void addImageView(File file){
+        Bitmap bitmap = null;
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
+            if (bitmap != null) {
+
+                ImageView imageView = new ImageView(this);
+                imageView.setImageBitmap(bitmap);
+
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(300, 300);
+                imageView.setLayoutParams(layoutParams);
+
+                imageView.setOnClickListener((View v) -> {
+
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                    Uri photoURI = FileProvider.getUriForFile(
+                            this, "fr.hamchez.roundnettracker.fileprovider", file
+                    );
+
+                    intent.setDataAndType(photoURI, "image/*");
+                    startActivity(intent);
+
+                });
+
+                imageGridView.addView(imageView);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    List<File> getListFiles(File parentDir) {
+        ArrayList<File> inFiles = new ArrayList<File>();
+        File[] files = parentDir.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                inFiles.addAll(getListFiles(file));
+            } else {
+                inFiles.add(file);
+            }
+        }
+        return inFiles;
     }
 
     public void onTakePictureClick(View view){
@@ -129,7 +172,8 @@ public class GameActivity extends AppCompatActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES+"/"+liveGameId);
+
         File image = File.createTempFile(imageFileName,".jpg", storageDir);
 
         // Save a file: path for use with ACTION_VIEW intents
@@ -145,5 +189,10 @@ public class GameActivity extends AppCompatActivity {
         this.sendBroadcast(mediaScanIntent);
     }
 
+    public void onFinishedClick(View view){
+
+
+
+    }
 
 }

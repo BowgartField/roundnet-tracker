@@ -47,6 +47,7 @@
     <string name="registerUserOK">Utilisateur créer, vous pouvez vous connecter !</string>
     <string name="createTeamError">Impossible de créer une équipe vide</string>
     <string name="createGameError">Veuillez renseigner un nom de match</string>
+    <string name="createGameSucess">Match créer avec succés !</string>
 
     <string name="title_activity_register">RegisterActivity</string>
 
