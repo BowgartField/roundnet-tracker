@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +40,6 @@ public class LiveGameFragment extends Fragment {
     TextView teamTwoName;
     TextView teamTwoLocalisation;
 
-    int liveGameId;
     Team teamOne;
     Team teamTwo;
 
@@ -89,7 +89,7 @@ public class LiveGameFragment extends Fragment {
             liveLinearLayout.setOnClickListener(v -> {
 
                 Intent intent = new Intent(getContext(),GameActivity.class);
-                intent.putExtra("gameId",liveGameId);
+                intent.putExtra("gameId",liveGame.getId());
                 intent.putExtra("teamOne",teamOne);
                 intent.putExtra("teamTwo",teamTwo);
 
@@ -101,5 +101,11 @@ public class LiveGameFragment extends Fragment {
 
         }
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        configureInterface();
     }
 }

@@ -4,10 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import fr.hamchez.roundnettracker.R;
+import fr.hamchez.roundnettracker.database.DatabaseConnection;
 import fr.hamchez.roundnettracker.database.RoundnetSQLite;
 import fr.hamchez.roundnettracker.models.Game;
 
@@ -26,6 +30,34 @@ public class GameDAO implements DAO<Game>{
 
     public GameDAO(Context context){
         roundnetSQLite = new RoundnetSQLite(context);
+    }
+
+    public void saveGame(){
+
+        List<Game> toBackup = getAll();
+        Connection connection = new DatabaseConnection().getConnection();
+
+        try{
+
+            for(int i = 0; i < 5; i++){
+
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "INSERT INTO game(id, idTeamOne, idTeamTwo, localisation) VALUES(?,?,?,?)"
+                );
+
+                preparedStatement.setInt(0, toBackup.get(i).getId());
+                preparedStatement.setInt(1, toBackup.get(i).getIdTeamOne());
+                preparedStatement.setInt(2, toBackup.get(i).getIdTeamTwo());
+                preparedStatement.setString(3, toBackup.get(i).getLocalisation());
+
+                preparedStatement.executeQuery();
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public Game getLiveGame(){
@@ -62,7 +94,27 @@ public class GameDAO implements DAO<Game>{
 
     @Override
     public List<Game> getAll() {
-        return null;
+
+        List<Game> gameList = new ArrayList<>();
+
+        Cursor cursor = roundnetSQLite.getReadableDatabase().rawQuery("SELECT * FROM game",new String[]{});
+
+        while (cursor.moveToNext()){
+            gameList.add(
+                new Game(
+                        cursor.getInt(cursor.getColumnIndex(ID)),
+                        cursor.getInt(cursor.getColumnIndex(ID_TEAM_ONE)),
+                        cursor.getInt(cursor.getColumnIndex(ID_TEAM_TWO)),
+                        cursor.getString(cursor.getColumnIndex(LOCALISATION)),
+                        Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(FINISHED))
+                )
+            ));
+        }
+
+        cursor.close();
+        return gameList;
+
+
     }
 
     @Override
@@ -93,4 +145,19 @@ public class GameDAO implements DAO<Game>{
             cursor.getString(cursor.getColumnIndex(LOCALISATION))
         );
     }
+
+    public void finished(int idGame){
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FINISHED,"true");
+
+        roundnetSQLite.getWritableDatabase().update(
+            TABLE_NAME,
+            contentValues,
+            "id = ?",
+            new String[]{String.valueOf(idGame)}
+        );
+
+    }
+
 }

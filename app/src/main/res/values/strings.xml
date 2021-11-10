@@ -39,6 +39,8 @@
     <string name="createGame">Create game</string>
     <string name="teamName">Team name</string>
     <string name="teamLocalisation">Team localisation</string>
+    <string name="equality">Equality !</string>
+    <string name="saveGame">Sauvegarder sur le cloud</string>
 
     <string name="handEmoji" translatable="false">👋🏻</string>
     <string name="homeWelcomeText">Welcome </string>
@@ -54,6 +56,7 @@
     <string name="createTeamError">Cannot create empty team</string>
     <string name="createGameError">Cannot create empty Game</string>
     <string name="createGameSucess">Game created with success !</string>
+    <string name="cloudSaveSucess">Cloud backup with success !</string>
 
     <string name="title_activity_register">RegisterActivity</string>
 

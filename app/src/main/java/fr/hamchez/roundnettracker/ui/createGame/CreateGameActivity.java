@@ -2,6 +2,8 @@ package fr.hamchez.roundnettracker.ui.createGame;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,7 +25,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import fr.hamchez.roundnettracker.R;
 import fr.hamchez.roundnettracker.adapters.TeamSpinnerAdapter;
@@ -40,6 +45,8 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
     Spinner teamOneSpinner;
     Spinner teamTwoSpinner;
 
+    TextView addressTextView;
+
     Handler handler = new Handler();
 
     @Override
@@ -49,6 +56,8 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
 
         teamOneSpinner = findViewById(R.id.teamOneSpinner);
         teamTwoSpinner = findViewById(R.id.teamTwoSpinner);
+
+        addressTextView = findViewById(R.id.addressTextView);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -130,5 +139,21 @@ public class CreateGameActivity extends AppCompatActivity implements OnMapReadyC
 
         googleMap.addMarker(new MarkerOptions().position(latLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+        List<Address> addresses;
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+
+        try {
+            addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+
+            String address = addresses.get(0).getAddressLine(0);
+
+            addressTextView.setText(address);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

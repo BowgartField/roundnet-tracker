@@ -35,6 +35,7 @@ import java.util.Objects;
 import fr.hamchez.roundnettracker.BuildConfig;
 import fr.hamchez.roundnettracker.R;
 import fr.hamchez.roundnettracker.customComponents.ScoreComponent;
+import fr.hamchez.roundnettracker.database.dao.GameDAO;
 import fr.hamchez.roundnettracker.models.Team;
 
 public class GameActivity extends AppCompatActivity {
@@ -191,7 +192,14 @@ public class GameActivity extends AppCompatActivity {
 
     public void onFinishedClick(View view){
 
+        System.out.println(liveGameId);
 
+        new Thread(() -> {
+
+            new GameDAO(this).finished(liveGameId);
+            finish();
+
+        }).start();
 
     }
 

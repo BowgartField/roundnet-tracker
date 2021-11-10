@@ -6,12 +6,22 @@ public class Game {
     private int idTeamOne;
     private int idTeamTwo;
     private String localisation;
+    private boolean finished;
 
     public Game(int id, int idTeamOne, int idTeamTwo, String localisation) {
         this.id = id;
         this.idTeamOne = idTeamOne;
         this.idTeamTwo = idTeamTwo;
         this.localisation = localisation;
+        this.finished = false;
+    }
+
+    public Game(int id, int idTeamOne, int idTeamTwo, String localisation, boolean finished) {
+        this.id = id;
+        this.idTeamOne = idTeamOne;
+        this.idTeamTwo = idTeamTwo;
+        this.localisation = localisation;
+        this.finished = finished;
     }
 
     public int getId() {
@@ -28,5 +38,9 @@ public class Game {
 
     public String getLocalisation() {
         return localisation;
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 }

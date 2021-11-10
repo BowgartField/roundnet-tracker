@@ -53,7 +53,22 @@ public class TeamPointDAO implements DAO<TeamPoint> {
 
     @Override
     public List<TeamPoint> getAll() {
-        return new ArrayList<>();
+
+        List<TeamPoint> teamPointList = new ArrayList<>();
+
+        Cursor cursor = roundnetSQLite.getReadableDatabase().rawQuery("SELECT * FROM points",new String[]{});
+
+        while(cursor.moveToNext()){
+
+            teamPointList.add(new TeamPoint(
+               cursor.getInt(cursor.getColumnIndex(ID)),
+               cursor.getInt(cursor.getColumnIndex(ID_GAME)),
+               cursor.getInt(cursor.getColumnIndex(ID_TEAM))
+            ));
+        }
+
+        cursor.close();
+        return teamPointList;
     }
 
     @Override

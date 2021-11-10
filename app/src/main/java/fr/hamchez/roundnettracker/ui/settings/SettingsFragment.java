@@ -16,11 +16,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Locale;
 
 import fr.hamchez.roundnettracker.R;
+import fr.hamchez.roundnettracker.database.dao.GameDAO;
 
 public class SettingsFragment extends Fragment {
 
@@ -28,16 +32,18 @@ public class SettingsFragment extends Fragment {
     private ImageView frenchImage;
     private ImageView englishImage;
 
+    private Button saveButton;
+
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.settings_fragment, container, false);
         englishImage = result.findViewById(R.id.imageboutonAnglais);
         frenchImage = result.findViewById(R.id.imageboutonFrench);
+        saveButton = result.findViewById(R.id.saveButton);
 
         frenchImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +87,8 @@ public class SettingsFragment extends Fragment {
             }
         });
 
+        saveButton.setOnClickListener(this::onSave);
+
         return result;
     }
 
@@ -90,4 +98,18 @@ public class SettingsFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
         // TODO: Use the ViewModel
     }
+
+    public void onSave(View view){
+
+        new Thread(() -> {
+
+            new GameDAO(getContext()).saveGame();
+
+            Snackbar snackbar = Snackbar.make(view,R.string.cloudSaveSucess,Snackbar.LENGTH_LONG);
+            snackbar.show();
+
+        }).start();
+
+    }
+
 }
